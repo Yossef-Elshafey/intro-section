@@ -1,13 +1,38 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .list-style {
+    @apply cursor-pointer  xl:text-gray-400/90 hover:text-black transition-colors relative select-none;
+  }
+  .list-style.reg {
+    @apply border border-gray-500/50 hover:border-black  p-2  rounded-xl;
+  }
+  .drop-down-list {
+    @apply flex items-center hover:text-gray-400/90 border-b;
+  }
+  .drop-down {
+    @apply flex flex-col gap-y-4 min-w-max xl:absolute xl:right-1/2 xl:translate-x-1/2 bg-white p-4 rounded-md mt-2 xl:mt-4;
+  }
+  .arrow {
+    @apply h-auto w-auto inline ml-2 relative -z-10;
+  }
+  .u-list-mob {
+    @apply p-2 flex translate-x-full flex-col gap-y-4 items-baseline fixed w-1/2 bg-white right-0 bottom-0 h-screen;
+  }
+  .u-list {
+    @apply xl:translate-x-0 xl:flex-row xl:w-full xl:h-auto xl:position-unset xl:gap-y-0 xl:gap-x-9 xl:ml-9 xl:bg-transparent xl:items-center;
+  }
+}
+@layer utilities {
+  @variants responsive {
+    .position-unset {
+      position: unset;
+    }
+  }
 }
